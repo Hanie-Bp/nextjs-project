@@ -1,8 +1,11 @@
+import Recipes from '@/components/Recipes'
 import React from 'react'
 
-const page = () => {
+const page = () => {  
   return (
-    <div>recipes</div>
+    <div className=' p-10'>
+      <Recipes/>
+    </div>
   )
 }
 
