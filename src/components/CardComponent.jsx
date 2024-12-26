@@ -10,12 +10,11 @@ import {
 } from "./ui/card";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 const CardComponent = ({ obj, type }) => {
   const router = useRouter();
   const cardName = obj.name || obj.title || obj.firstName + " " + obj.lastName;
-  const description = obj.body || obj.email;
+  const description = obj.email;
   const rating = obj.rating;
   const views = obj.reviewCount;
 
@@ -23,10 +22,10 @@ const CardComponent = ({ obj, type }) => {
     router.push(`/${type}/${obj.id}`);
   };
   return (
-    <Card>
+    <Card className="w-96">
       <CardHeader>
-        <CardTitle className="flex items-center">
-          {obj.image && <Image src={obj.image} width={40} height={30} />}
+        <CardTitle className="flex items-center ">
+          {obj.image && <Image src={obj.image} width={100} className="rounded hover:scale-150" height={30} />}
           <h2 className="ml-2">{cardName}</h2>
         </CardTitle>
         {/* <CardDescription>Card Description</CardDescription> */}
@@ -38,7 +37,7 @@ const CardComponent = ({ obj, type }) => {
       </CardContent>
       <CardFooter>
         <Button onClick={handleClick}>
-            More
+          More
           {/* {obj.name ? (
             <Link href={`/recipes/${obj.id}`}>More</Link>
           ) : obj.title ? (
