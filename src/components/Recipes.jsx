@@ -1,20 +1,22 @@
 import getData from "@/utils/actions";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
-import Image from "next/image";
-import { Button } from "./ui/button";
-import Link from "next/link";
 import CardComponent from "./CardComponent";
+import dynamic from "next/dynamic";
 
 const Recipes = async () => {
   const data = await getData("https://dummyjson.com/recipes");
+
+  const CardComponent = dynamic(() => import("./CardComponent"), {
+    loading: () => (
+      <button type="button" className="bg-black text-white" disabled>
+        <svg
+          className="animate-spin h-5 w-5 mr-3"
+          viewBox="0 0 24 24"
+        ></svg>
+        Processing...
+      </button>
+    ),
+  });
 
   return (
     <>

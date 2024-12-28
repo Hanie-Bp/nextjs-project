@@ -3,7 +3,6 @@ import React from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -25,7 +24,14 @@ const CardComponent = ({ obj, type }) => {
     <Card className="w-96">
       <CardHeader>
         <CardTitle className="flex items-center ">
-          {obj.image && <Image src={obj.image} width={100} className="rounded hover:scale-150" height={30} />}
+          {obj.image && (
+            <Image
+              src={obj.image}
+              width={100}
+              className="rounded hover:scale-150"
+              height={30}
+            />
+          )}
           <h2 className="ml-2">{cardName}</h2>
         </CardTitle>
         {/* <CardDescription>Card Description</CardDescription> */}
@@ -36,16 +42,7 @@ const CardComponent = ({ obj, type }) => {
         {views && <p>views: {views}</p>}
       </CardContent>
       <CardFooter>
-        <Button onClick={handleClick}>
-          More
-          {/* {obj.name ? (
-            <Link href={`/recipes/${obj.id}`}>More</Link>
-          ) : obj.title ? (
-            <Link href={`/posts/${obj.id}`}>More</Link>
-          ) : (
-            <Link href={`/users/${obj.id}`}>More</Link>
-          )} */}
-        </Button>
+        <Button onClick={handleClick}>More</Button>
       </CardFooter>
     </Card>
   );

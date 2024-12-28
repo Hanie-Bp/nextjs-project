@@ -1,12 +1,17 @@
-import Recipes from '@/components/Recipes'
-import React from 'react'
+import Recipes from "@/components/Recipes";
+import React from "react";
 
-const page = () => {  
+export const metadata = {
+  title: "Recipes",
+  description: "about recipes",
+};
+
+const page = () => {
   return (
-    <div className=' p-10'>
-      <Recipes/>
+    <div className=" p-10">
+      <Recipes />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

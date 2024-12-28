@@ -1,12 +1,17 @@
-import Posts from '@/components/Posts'
-import React from 'react'
+import Posts from "@/components/Posts";
+import React from "react";
 
-const page = () => {  
+export const metadata = {
+  title: "Posts",
+  description: "about posts ",
+};
+
+const page = () => {
   return (
-    <div className=' p-10'>
-      <Posts/>
+    <div className=" p-10">
+      <Posts />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
