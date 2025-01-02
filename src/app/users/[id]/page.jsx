@@ -6,28 +6,30 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import getData from "@/utils/actions";
+import { getData } from "@/utils/actions";
+// import getData from "@/utils/actions";
 import Link from "next/link";
 import React from "react";
 
 const userCard = async ({ params }) => {
-  const user = await getData(`https://dummyjson.com/users/${params.id}`);
+  const data = await getData(`http://localhost:3000/api/v1/users/${params.id}`);
+  const [user] = data;
   console.log(user);
-  const adress =
-    user.address.country +
-    " " +
-    user.address.state +
-    " " +
-    user.address.city +
-    " " +
-    user.address.address;
+  const adress = user.address
+    // user.address.country +
+    // " " +
+    // user.address.state +
+    // " " +
+    // user.address.city +
+    // " " +
+    // user.address.address;
   return (
     <div className="flex justify-center items-center  h-[90vh] p-4">
       <Card className="bg-slate-200 w-full max-w-lg mx-auto my-10 h-auto">
         <CardHeader>
           <CardTitle className="flex items-center">
             <h2 className="text-xl md:text-2xl">
-              {user.firstName} {user.lastName}
+             {user.name}
             </h2>
           </CardTitle>
         </CardHeader>

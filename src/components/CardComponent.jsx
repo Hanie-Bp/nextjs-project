@@ -15,7 +15,7 @@ const CardComponent = ({ obj, type }) => {
   const cardName = obj.name || obj.title || obj.firstName + " " + obj.lastName;
   const description = obj.email;
   const rating = obj.rating;
-  const views = obj.reviewCount;
+  const views = obj.views;
 
   const handleClick = () => {
     router.push(`/${type}/${obj.id}`);
@@ -30,6 +30,7 @@ const CardComponent = ({ obj, type }) => {
               width={100}
               className="rounded hover:scale-150"
               height={30}
+              alt="card image"
             />
           )}
           <h2 className="ml-2">{cardName}</h2>

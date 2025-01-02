@@ -1,11 +1,14 @@
-import getData from "@/utils/actions";
+// import {getData} from "@/utils/actions";
 import React from "react";
 
 import CardComponent from "./CardComponent";
 import dynamic from "next/dynamic";
+import { getData } from "@/utils/actions";
 
 const Users = async () => {
-  const data = await getData("https://dummyjson.com/users");
+  const data = await getData("http://localhost:3000/api/v1/users", ["users"]);
+
+  
 
   const CardComponent = dynamic(() => import("./CardComponent"), {
     loading: () => (
@@ -23,7 +26,7 @@ const Users = async () => {
     <>
       <h1 className="text-xl m-2 bg-slate-400 rounded p-3">Users</h1>
       <div className="p-2 flex flex-wrap items-center justify-center  gap-4">
-        {data.users?.map((obj) => {
+        {data?.map((obj) => {
           return <CardComponent key={obj.id} obj={obj} type={"users"} />;
         })}
       </div>

@@ -6,14 +6,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import getData from "@/utils/actions";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { getData } from "@/utils/actions";
 
 const recipeCard = async ({ params }) => {
   const recipe = await getData(`https://dummyjson.com/recipes/${params.id}`);
-  console.log(recipe);
+  // const [recipe] = data;
+  // console.log(data);
   return (
     <div className="flex justify-center items-center h-[90vh] p-4 my-72 md:my-20 ">
       <Card className="bg-slate-200 w-full max-w-5xl my-4">

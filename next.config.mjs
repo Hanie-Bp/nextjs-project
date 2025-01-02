@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.dummyjson.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'en.wikipedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'as1.ftcdn.net',
+      },
     ],
   },
 };

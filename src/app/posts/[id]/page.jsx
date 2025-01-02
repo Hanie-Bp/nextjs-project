@@ -7,12 +7,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import getData from "@/utils/actions";
+import { getData } from "@/utils/actions";
+// import getData from "@/utils/actions";
 import Link from "next/link";
 import React from "react";
 
 const postCard = async ({ params }) => {
-  const post = await getData(`https://dummyjson.com/posts/${params.id}`);
+const data = await getData(`http://localhost:3000/api/v1/posts/${params.id}`);
+  const [post] = data;
   console.log(post);
   return (
     <div className="flex justify-center items-center h-[90vh] p-4">
@@ -26,10 +28,10 @@ const postCard = async ({ params }) => {
           <p className="my-4">{post.body}</p>
           <ul>
             <li>
-              <span>Likes:</span> {post.reactions.likes}
+              <span>Likes:</span> {post.likes}
             </li>
             <li>
-              <span>Dislikes:</span> {post.reactions.dislikes}
+              <span>Dislikes:</span> {post.dislikes}
             </li>
             <li>
               <span>Views:</span> {post.views}
