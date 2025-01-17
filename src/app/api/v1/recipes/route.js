@@ -7,8 +7,6 @@ export async function GET() {
     await connectDB();
     const recipes = await Recipe.find();
 
-   
-    
     return new Response(JSON.stringify(recipes), {
       headers: {
         "Content-Type": "application/json",
@@ -25,12 +23,11 @@ export async function GET() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    // console.log("bodyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",body);
+
 
     await connectDB();
     const recipe = await Recipe.create(body);
 
-    // revalidateTag("users");
     return new Response(JSON.stringify(recipe), {
       headers: {
         "Content-Type": "application/json",

@@ -50,9 +50,10 @@ const FormRecipe = ({ recipe }) => {
 
   const onSubmit = async (values) => {
     if (recipe) {
-      //   console.log(values);
-      const formObj = { ...values, id: recipe._id };
-      await patchData(`http://localhost:3000/api/v1/recipes`, formObj,"recipes");
+        
+      const formObj = { ...values, _id: recipe._id };
+      // console.log(formObj);
+      await patchData(`http://localhost:3000/api/v1/recipes/${recipe._id}`, formObj,"recipes");
     } else {
       await postData("http://localhost:3000/api/v1/recipes", values, "recipes");
     }

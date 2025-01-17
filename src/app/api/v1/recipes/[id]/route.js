@@ -1,13 +1,14 @@
 import { connectDB, disconnectDB } from "@/db/connectDB";
 import Recipe from "@/db/models/Recipe";
 import {data} from "@/utils/data";
+import { revalidateTag } from "next/cache";
 
 export async function GET(req, { params }) {
   try {
     const { id } = params;
 
     if (!id) {
-      return new Response("Post ID is required", { status: 400 });
+      return new Response("recipe ID is required", { status: 400 });
     }
 
     await connectDB();
@@ -38,7 +39,7 @@ export async function DELETE(req, { params }) {
     if (!recipe) {
       return new Response("recipe not found", { status: 404 });
     }
-   
+ 
     return new Response(JSON.stringify({ message: "Deleted successfully" }), {
       headers: { "Content-Type": "application/json" },
     });
@@ -63,7 +64,7 @@ export async function PATCH(req, { params }) {
     if (!updatedRecipe) {
       return new Response("recipe not found", { status: 404 });
     }
-    // revalidateTag("users");
+    
     return new Response(JSON.stringify(updatedRecipe), {
       headers: { "Content-Type": "application/json" },
     });

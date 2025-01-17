@@ -63,7 +63,7 @@ console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',recipe);
                 <p key={index}>{instruction}</p>
               ))} */}
             </div>
-            <div className="flex items-center justify-center  ml-24">
+            <div className="flex items-center justify-center  ml-24 -mt-72">
               <ul>
                 <li>
                   <span>Cuisine:</span> {recipe?.cuisine}
