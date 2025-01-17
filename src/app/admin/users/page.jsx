@@ -25,7 +25,7 @@ export default async function AdminRecipe() {
 
       <div className="p-2 flex flex-wrap items-center justify-center  gap-4">
         {data?.map((obj) => {
-          return <CardComponent key={obj.id} obj={obj} type={"posts"} />;
+          return <CardComponent key={obj.id} obj={obj} type={"users"} />;
         })}
       </div>
     </div>

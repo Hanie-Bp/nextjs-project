@@ -23,9 +23,11 @@ import FormRecipe from "@/components/FormRecipe";
 
 const recipeCard = async ({ params }) => {
   const recipe = await getData(
-    `http://localhost:3000/api/v1/recipes/${params.id}`,"recipes");
-console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',recipe);
-
+    `http://localhost:3000/api/v1/recipes/${params.id}`,
+    "recipes"
+  );
+  
+  // console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',recipe);
 
   return (
     <div className="flex justify-center items-center h-[90vh] p-4 my-72 md:my-20 ">
@@ -35,7 +37,6 @@ console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',recipe);
             <h2 className="text-cyan-900 text-2xl">{recipe?.name}</h2>
             <Image
               src={recipe?.image}
-              // src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLCuJy69l2kA9d8pddtKObu3_h9JllCKIEvw&s"}
               className="rounded-xl"
               width={120}
               height={30}
@@ -71,15 +72,12 @@ console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',recipe);
                 <li>
                   <span>Calories:</span> {recipe?.calories}
                 </li>
-                {/* <li>
-                  <span>Rating:</span> {recipe?.rating}
-                </li> */}
               </ul>
             </div>
           </div>
         </CardContent>
         <CardFooter>
-          <Link href="/recipes">
+          <Link href={"/recipes"}>
             <Button className="me-6">Back</Button>
           </Link>
           <Dialog>

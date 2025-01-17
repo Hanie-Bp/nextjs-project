@@ -15,7 +15,7 @@ import { deleteData } from "@/utils/actions";
 import { revalidateTag } from "next/cache";
 
 const CardComponent = ({ obj, type }) => {
-  console.log("objjjjjjj",obj);
+  // console.log("objjjjjjj", obj);
 
   const router = useRouter();
   const cardName = obj.name || obj.title || obj.firstName + " " + obj.lastName;
@@ -26,7 +26,7 @@ const CardComponent = ({ obj, type }) => {
   const handleClick = async (e) => {
     const action = e.target.innerText;
     if (action === "Delete") {
-      await deleteData(`http://localhost:3000/api/v1/${type}/${obj._id}`,type);
+      await deleteData(`http://localhost:3000/api/v1/${type}/${obj._id}`, type);
       // revalidateTag(type);
     } else if (action === "Edit") {
       console.log("edit");
