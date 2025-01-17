@@ -35,6 +35,7 @@ console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',recipe);
             <h2 className="text-cyan-900 text-2xl">{recipe?.name}</h2>
             <Image
               src={recipe?.image}
+              // src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLCuJy69l2kA9d8pddtKObu3_h9JllCKIEvw&s"}
               className="rounded-xl"
               width={120}
               height={30}
